@@ -1,0 +1,12 @@
+---
+- name: Collect Cisco IOS facts
+  hosts: ios
+  gather_facts: no
+  tasks:
+  - name: Show version
+    ansible.netcommon.ios_command:
+      commands: show version
+    register: result
+  - name: Display output
+    debug:
+      var: result.stdout_lines
