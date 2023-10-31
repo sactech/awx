@@ -1,0 +1,8 @@
+---
+- name: Install Collections
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Install ansible.netcommon collection
+      ansible.builtin.command:
+        cmd: "ansible-galaxy collection install ansible.netcommon"
