@@ -1,0 +1,22 @@
+---
+- name: Configure Cisco IOS switches
+  hosts: cisco_switches
+  gather_facts: no
+  connection: network_cli
+  tasks:
+    - name: Set MOTD banner
+      ios_config:
+        lines:
+          - "This is the MOTD banner. Unauthorized access is prohibited!"
+        banner: login
+
+    - name: Configure Loopback interfaces
+      ios_config:
+        lines:
+          - description Test Loopback {{ item }}
+          - ip address 10.0.{{ item }}.1 255.255.255.0
+        parents: interface loopback {{ item }}
+      loop:
+        - 1
+        - 2
+        - 3
