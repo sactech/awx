@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
   - name: Show version
-    ansible.netcommon.ios_command:
+    ansible.netcommon.network_resource:
       commands: show version
     register: result
   - name: Display output
