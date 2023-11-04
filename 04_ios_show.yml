@@ -1,6 +1,6 @@
 ---
 - name: Collect Cisco IOS facts
-  hosts: ios
+  hosts: routers
   gather_facts: no
   tasks:
   - name: Show version
